@@ -1,11 +1,13 @@
-/* ====================== style.css ====================== */
+/* ====================== style.css - FarmeaBeca ====================== */
 
 :root {
-    --primary-dark: #0A2540;
-    --accent-turquoise: #00D4C8;
-    --accent-orange: #FF6B35;
-    --light-bg: #F8FAFC;
-    --text-dark: #1E2937;
+    --primary: #0A2540;
+    --accent: #00D4C8;
+    --accent-dark: #00b8af;
+    --orange: #FF6B35;
+    --light: #F8FAFC;
+    --text: #1E2937;
+    --gray: #64748B;
 }
 
 * {
@@ -16,30 +18,49 @@
 
 body {
     font-family: 'Inter', system-ui, sans-serif;
-    color: var(--text-dark);
-    line-height: 1.6;
+    color: var(--text);
+    line-height: 1.7;
     background-color: #ffffff;
+    overflow-x: hidden;
 }
 
-/* Tipografía */
+/* Tipografía elegante */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
+    letter-spacing: -0.02em;
 }
 
-/* Navbar */
+/* Navbar mejorado */
 .navbar {
-    background-color: var(--primary-dark);
-    padding: 1rem 0;
+    background-color: rgba(10, 37, 64, 0.97);
+    backdrop-filter: blur(12px);
+    padding: 1.1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.text-turquoise {
-    color: var(--accent-turquoise) !important;
+.navbar-brand {
+    font-size: 1.85rem;
+    font-weight: 700;
 }
 
-/* Hero */
+.text-accent {
+    color: var(--accent) !important;
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent) !important;
+}
+
+/* HERO - Más elegante */
 .hero {
-    background: linear-gradient(rgba(10, 37, 64, 0.78), rgba(10, 37, 64, 0.88)),
+    background: linear-gradient(rgba(10, 37, 64, 0.82), rgba(10, 37, 64, 0.88)),
                 url('https://picsum.photos/id/1015/1920/1080') center/cover no-repeat;
     min-height: 100vh;
     display: flex;
@@ -54,66 +75,113 @@ h1, h2, h3, h4, h5, h6 {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 180px;
-    background: linear-gradient(transparent, #fff);
+    height: 200px;
+    background: linear-gradient(transparent, #F8FAFC);
 }
 
-/* Botones */
+.hero-title {
+    font-size: 3.8rem;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+/* Botones premium */
 .btn-primary {
-    background-color: var(--accent-turquoise);
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
     color: #0A2540;
     border: none;
     font-weight: 600;
-    padding: 12px 32px;
+    padding: 14px 34px;
     border-radius: 50px;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 25px rgba(0, 212, 200, 0.25);
 }
 
 .btn-primary:hover {
-    background-color: #00b8af;
     transform: translateY(-4px);
-    box-shadow: 0 12px 25px rgba(0, 212, 200, 0.35);
+    box-shadow: 0 15px 35px rgba(0, 212, 200, 0.35);
+    background: linear-gradient(135deg, #00e6d9, var(--accent));
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    font-weight: 600;
+    padding: 14px 34px;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--accent);
+    color: #0A2540;
+    transform: translateY(-3px);
 }
 
 .btn-outline-light {
-    border: 2px solid rgba(255,255,255,0.9);
+    border: 2px solid rgba(255,255,255,0.85);
     color: white;
     font-weight: 500;
 }
 
 .btn-outline-light:hover {
-    background-color: white;
-    color: var(--primary-dark);
+    background: white;
+    color: var(--primary);
 }
 
-/* Cards y elementos gamificados */
+/* Cards elegantes */
 .card {
     border: none;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s ease;
+    border-radius: 24px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
     overflow: hidden;
+    background: white;
 }
 
 .card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 40px rgba(0, 212, 200, 0.18);
+    transform: translateY(-14px);
+    box-shadow: 0 25px 50px rgba(0, 212, 200, 0.12);
 }
 
 .feature-icon {
-    width: 72px;
-    height: 72px;
-    background: linear-gradient(135deg, var(--accent-turquoise), #00a89f);
+    width: 78px;
+    height: 78px;
+    background: linear-gradient(135deg, var(--accent), #00b8af);
     color: white;
-    border-radius: 18px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.1rem;
-    margin: 0 auto 1.5rem;
+    font-size: 2.3rem;
+    margin: 0 auto 1.8rem;
+    box-shadow: 0 8px 20px rgba(0, 212, 200, 0.25);
 }
 
-/* Sección Cómo funciona */
+/* Sección títulos */
+.section-title {
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    width: 55%;
+    height: 4px;
+    background: linear-gradient(to right, var(--accent), var(--orange));
+    bottom: -10px;
+    left: 0;
+    border-radius: 4px;
+}
+
+/* Cómo funciona */
 .how-step {
     position: relative;
 }
@@ -122,11 +190,12 @@ h1, h2, h3, h4, h5, h6 {
     content: '';
     position: absolute;
     left: 50%;
-    top: 70px;
-    bottom: -30px;
+    top: 78px;
+    bottom: -50px;
     width: 3px;
     background: #e2e8f0;
     transform: translateX(-50%);
+    z-index: 0;
 }
 
 .how-step:last-child::before {
@@ -134,97 +203,86 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .step-number {
-    width: 65px;
-    height: 65px;
-    background: var(--accent-turquoise);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin: 0 auto 1.2rem;
-}
-
-/* Demo Container */
-.demo-container {
-    background: var(--primary-dark);
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.45);
-}
-
-.demo-navbar {
-    background: #13294f;
-    padding: 16px 24px;
-}
-
-.streak-fire {
-    color: var(--accent-orange);
-    animation: flame 1.8s infinite alternate ease-in-out;
-}
-
-@keyframes flame {
-    from { transform: scale(1); }
-    to { transform: scale(1.18); }
-}
-
-/* Botón flotante */
-.floating-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1000;
-    background: var(--accent-orange);
-    color: white;
-    border: none;
     width: 68px;
     height: 68px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: white;
     border-radius: 50%;
-    font-size: 1.9rem;
-    box-shadow: 0 12px 35px rgba(255, 107, 53, 0.45);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    font-size: 1.9rem;
+    font-weight: 700;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 212, 200, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+/* Demo Container - Más premium */
+.demo-container {
+    background: var(--primary);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 30px 70px -15px rgba(10, 37, 64, 0.5);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Botón flotante elegante */
+.floating-btn {
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    z-index: 1000;
+    background: linear-gradient(135deg, var(--orange), #ff8a5c);
+    color: white;
+    border: none;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 1.85rem;
+    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .floating-btn:hover {
-    transform: scale(1.12) rotate(15deg);
-}
-
-/* Títulos de sección */
-.section-title {
-    position: relative;
-    display: inline-block;
-}
-
-.section-title:after {
-    content: '';
-    position: absolute;
-    width: 65%;
-    height: 5px;
-    background: var(--accent-turquoise);
-    bottom: -10px;
-    left: 0;
-    border-radius: 3px;
+    transform: scale(1.15) rotate(12deg);
+    box-shadow: 0 20px 50px rgba(255, 107, 53, 0.5);
 }
 
 /* Footer */
 .footer {
-    background-color: var(--primary-dark);
+    background-color: var(--primary);
     color: white;
-    padding: 3rem 0 1.5rem;
+    padding: 4rem 0 2rem;
 }
 
-/* Responsividad adicional */
+/* Mejoras de responsividad y detalles */
 @media (max-width: 768px) {
-    .hero {
-        min-height: 90vh;
+    .hero-title {
+        font-size: 2.9rem;
     }
     
-    h1.display-3 {
-        font-size: 2.6rem;
+    .hero {
+        min-height: 92vh;
     }
+    
+    .step-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+    }
+}
+
+/* Animaciones suaves */
+.card, .feature-icon, .btn {
+    transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Hover sutil en cards */
+.card:hover .feature-icon {
+    transform: scale(1.08);
 }

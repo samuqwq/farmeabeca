@@ -8,106 +8,60 @@
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        .chat-container {
-            height: 60vh;
-            overflow-y: auto;
-            background: #f0f7f0;
-            border-radius: 15px;
-            padding: 15px;
-        }
-        .message {
-            max-width: 75%;
-            margin-bottom: 15px;
-        }
-        .user-message {
-            background: #0052CC;
-            color: white;
-            border-radius: 20px 20px 5px 20px;
-            margin-left: auto;
-        }
-        .bot-message {
-            background: #e9ecef;
-            border-radius: 20px 20px 20px 5px;
-        }
+        .chat-container { height: 65vh; overflow-y: auto; background: #f0f7f0; border-radius: 20px; padding: 20px; }
     </style>
 </head>
-<body class="bg-light">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="../index.html">
+            <a class="navbar-brand fw-bold fs-4" href="../index.html">
                 <i class="fas fa-graduation-cap me-2"></i>FarmeaBeca
             </a>
             <div class="d-flex align-items-center gap-3">
-                <span id="userGreeting" class="text-white fw-semibold"></span>
-                <a href="dashboard-alumno.html" class="btn btn-outline-light btn-sm">← Volver al Dashboard</a>
-                <button onclick="logout()" class="btn btn-outline-light btn-sm">
-                    <i class="fas fa-sign-out-alt"></i>
+                <span id="userGreeting" class="text-white fw-semibold d-none d-md-inline"></span>
+                <a href="dashboard-alumno.html" class="btn btn-light btn-sm rounded-pill">← Dashboard</a>
+                <button onclick="logout()" class="btn btn-outline-light btn-sm rounded-pill">
+                    <i class="fas fa-sign-out-alt"></i> Salir
                 </button>
             </div>
         </div>
     </nav>
 
-    <div class="container py-4">
+    <div class="container py-5 mt-5">
         <h1 class="fw-bold mb-4">Apoyo Psicológico</h1>
-        <p class="text-muted mb-4">Habla de forma confidencial con un psicólogo virtual. Todo se guarda de forma privada.</p>
-
-        <!-- Chat -->
-        <div class="card shadow-sm border-0">
-            <div class="card-header bg-white d-flex align-items-center">
-                <div class="d-flex align-items-center">
-                    <span class="fs-3 me-2">🧠</span>
-                    <div>
-                        <h5 class="mb-0">Psicólogo Virtual</h5>
-                        <small class="text-success">• En línea</small>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="chatContainer" class="chat-container">
-                <!-- Mensajes se cargan aquí con JS -->
-            </div>
-
-            <!-- Input del chat -->
-            <div class="card-footer bg-white p-3">
+        <div class="card shadow-lg border-0">
+            <div id="chatContainer" class="chat-container"></div>
+            <div class="card-footer p-3">
                 <form id="chatForm" class="d-flex gap-2">
-                    <input type="text" id="chatInput" class="form-control" placeholder="Escribe tu mensaje aquí..." autocomplete="off">
-                    <button type="submit" class="btn btn-primary">
+                    <input type="text" id="chatInput" class="form-control form-control-lg rounded-pill" placeholder="Escribe tu mensaje..." autocomplete="off">
+                    <button type="submit" class="btn btn-primary btn-lg rounded-pill px-4">
                         <i class="fas fa-paper-plane"></i>
                     </button>
                 </form>
             </div>
         </div>
 
-        <!-- Botón flotante Solicitar ayuda profesional -->
-        <button onclick="solicitarAyudaProfesional()" 
-                class="btn btn-success btn-lg position-fixed bottom-0 end-0 m-4 shadow-lg rounded-circle"
-                style="width: 65px; height: 65px; display: flex; align-items: center; justify-content: center;">
+        <button onclick="solicitarAyudaProfesional()" class="btn btn-success btn-lg position-fixed bottom-0 end-0 m-4 shadow-lg rounded-circle" style="width: 70px; height: 70px;">
             <i class="fas fa-hand-holding-heart fa-2x"></i>
         </button>
+    </div>
 
-        <!-- Modal Solicitar ayuda -->
-        <div class="modal fade" id="modalAyuda" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Solicitar Ayuda Profesional</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label class="form-label">Tu nombre</label>
-                            <input type="text" id="modalNombre" class="form-control" value="" readonly>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Mensaje para el psicólogo</label>
-                            <textarea id="modalMensaje" class="form-control" rows="4" placeholder="Describe brevemente cómo te sientes..."></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button onclick="enviarSolicitudProfesional()" class="btn btn-success">Enviar Solicitud</button>
-                    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalAyuda" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Solicitar Ayuda Profesional</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="modalNombre" class="form-control mb-3" readonly>
+                    <textarea id="modalMensaje" class="form-control" rows="4" placeholder="Describe cómo te sientes..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button onclick="enviarSolicitudProfesional()" class="btn btn-success">Enviar Solicitud</button>
                 </div>
             </div>
         </div>

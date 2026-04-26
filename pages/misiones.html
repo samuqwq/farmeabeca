@@ -8,33 +8,31 @@
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body class="bg-light">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="../index.html">
+            <a class="navbar-brand fw-bold fs-4" href="../index.html">
                 <i class="fas fa-graduation-cap me-2"></i>FarmeaBeca
             </a>
             <div class="d-flex align-items-center gap-3">
-                <span id="userGreeting" class="text-white fw-semibold"></span>
-                <a href="dashboard-alumno.html" class="btn btn-outline-light btn-sm">← Volver al Dashboard</a>
-                <button onclick="logout()" class="btn btn-outline-light btn-sm">
-                    <i class="fas fa-sign-out-alt"></i>
+                <span id="userGreeting" class="text-white fw-semibold d-none d-md-inline"></span>
+                <a href="dashboard-alumno.html" class="btn btn-light btn-sm rounded-pill">← Dashboard</a>
+                <button onclick="logout()" class="btn btn-outline-light btn-sm rounded-pill">
+                    <i class="fas fa-sign-out-alt"></i> Salir
                 </button>
             </div>
         </div>
     </nav>
 
-    <div class="container py-4">
+    <div class="container py-5 mt-5">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1 class="fw-bold">Misiones Disponibles</h1>
-            <div>
-                <span class="badge bg-success fs-5 px-3 py-2" id="fbpHeader">FBP: <span id="fbpActual">150</span></span>
-            </div>
+            <span class="badge bg-success fs-5 px-4 py-2 rounded-pill" id="fbpHeader">FBP: <span id="fbpActual">150</span></span>
         </div>
 
         <div class="row g-4" id="misionesContainer">
-            <!-- Las cards se generan con JavaScript -->
+            <!-- Generado por JS -->
         </div>
     </div>
 

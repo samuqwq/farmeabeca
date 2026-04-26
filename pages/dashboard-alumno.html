@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Alumno - FarmeaBeca</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar consistente en todo el proyecto -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold fs-4" href="../index.html">
+                <i class="fas fa-graduation-cap me-2"></i>FarmeaBeca
+            </a>
+            <div class="d-flex align-items-center gap-3">
+                <span id="userGreeting" class="text-white fw-semibold d-none d-md-inline"></span>
+                <a href="misiones.html" class="btn btn-light btn-sm rounded-pill">Misiones</a>
+                <button onclick="logout()" class="btn btn-outline-light btn-sm rounded-pill">
+                    <i class="fas fa-sign-out-alt"></i> Salir
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5 mt-5">
+        <!-- Hero Dashboard Alumno -->
+        <div class="dashboard-hero p-5 rounded-4 mb-5 text-white">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="display-4 fw-bold" id="welcomeName">¡Hola, [Nombre]! 👋</h1>
+                    <p class="lead mb-0">Tus puntos FBP actuales</p>
+                </div>
+                <div class="text-end">
+                    <h2 class="display-1 fw-bold mb-0" id="fbpPoints">150</h2>
+                    <p class="mb-0 opacity-75">FBP</p>
+                </div>
+            </div>
+            <div class="progress mt-4" style="height: 14px; border-radius: 50px;">
+                <div id="progressBar" class="progress-bar bg-warning progress-bar-striped progress-bar-animated" 
+                     style="width: 65%;"></div>
+            </div>
+        </div>
+
+        <!-- Accesos rápidos -->
+        <h4 class="mb-4 fw-semibold">¿Qué quieres hacer hoy?</h4>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a href="misiones.html" class="card text-decoration-none hover-card h-100">
+                    <div class="card-body text-center p-5">
+                        <i class="fas fa-trophy fa-3x text-warning mb-4"></i>
+                        <h5 class="fw-bold">Misiones</h5>
+                        <p class="text-muted">Gana más FBP completando desafíos</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="mentores.html" class="card text-decoration-none hover-card h-100">
+                    <div class="card-body text-center p-5">
+                        <i class="fas fa-users fa-3x text-primary mb-4"></i>
+                        <h5 class="fw-bold">Pares Mentores</h5>
+                        <p class="text-muted">Conecta con estudiantes avanzados</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="psicologia.html" class="card text-decoration-none hover-card h-100">
+                    <div class="card-body text-center p-5">
+                        <i class="fas fa-heart fa-3x text-success mb-4"></i>
+                        <h5 class="fw-bold">Apoyo Psicológico</h5>
+                        <p class="text-muted">Habla con total confianza</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

@@ -10,8 +10,8 @@
 </head>
 <body>
 
-    <!-- Navbar mejorado -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm" style="background: #003d99;">
+    <!-- Navbar consistente con todo el proyecto -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold fs-4" href="index.html">
                 <i class="fas fa-graduation-cap me-2"></i>FarmeaBeca
@@ -32,56 +32,62 @@
         </div>
     </nav>
 
-    <!-- HERO MEJORADO - Fondo atractivo -->
-    <header class="hero d-flex align-items-center text-white position-relative">
-        <div class="hero-overlay"></div>
+    <!-- Hero mejorado -->
+    <header class="hero d-flex align-items-center text-white">
         <div class="container position-relative z-3">
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <h1 class="display-3 fw-bold mb-4">Tu beca de apoyo estudiantil</h1>
-                    <p class="lead fs-4 mb-5">Misiones, mentores pares, apoyo psicológico y recompensas en FBP.<br>Transforma tu experiencia escolar.</p>
-                    
+                    <p class="lead fs-4 mb-5">Misiones • Mentores pares • Apoyo psicológico • Recompensas FBP</p>
                     <div class="d-flex flex-wrap gap-3">
                         <a href="pages/registro.html" class="btn btn-light btn-lg fw-semibold rounded-pill px-5 py-3">Empezar ahora</a>
                         <a href="pages/login.html" class="btn btn-outline-light btn-lg fw-semibold rounded-pill px-5 py-3">Ya tengo cuenta</a>
                     </div>
-                    
                     <div class="mt-4 d-flex align-items-center gap-2">
                         <i class="fas fa-check-circle text-success fs-3"></i>
                         <span class="fs-5">Totalmente gratis para empezar</span>
                     </div>
                 </div>
-                
                 <div class="col-lg-6 text-center mt-5 mt-lg-0">
-                    <img src="https://picsum.photos/id/1015/800/600" alt="Estudiantes motivados" class="img-fluid rounded-4 shadow-2xl" style="max-height: 420px;">
+                    <img src="https://picsum.photos/id/1015/800/600" alt="Estudiantes" class="img-fluid rounded-4 shadow-2xl">
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Resto de secciones (mantengo por ahora) -->
+    <!-- Beneficios -->
     <section id="beneficios" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-5">¿Por qué FarmeaBeca?</h2>
+            <h2 class="text-center mb-5 fw-bold">¿Por qué FarmeaBeca?</h2>
             <div class="row g-4">
-                <!-- Cards de beneficios (puedes dejar las que ya tenías) -->
                 <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm hover-card">
-                        <div class="card-body text-center p-4">
-                            <i class="fas fa-trophy fa-3x text-warning mb-3"></i>
-                            <h5>Misiones y Recompensas</h5>
-                            <p class="text-muted">Gana FBP y desbloquea beneficios reales.</p>
-                        </div>
+                    <div class="card h-100 border-0 hover-card text-center p-4">
+                        <i class="fas fa-trophy fa-3x text-warning mb-3"></i>
+                        <h5 class="fw-bold">Misiones y Recompensas</h5>
+                        <p class="text-muted">Gana FBP completando desafíos diarios</p>
                     </div>
                 </div>
-                <!-- Repite las otras dos cards igual que antes -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 hover-card text-center p-4">
+                        <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                        <h5 class="fw-bold">Pares Mentores</h5>
+                        <p class="text-muted">Conecta con estudiantes que ya lo lograron</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 hover-card text-center p-4">
+                        <i class="fas fa-heart fa-3x text-success mb-3"></i>
+                        <h5 class="fw-bold">Apoyo Psicológico</h5>
+                        <p class="text-muted">Chat confidencial y ayuda profesional</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <footer class="bg-dark text-white py-5 text-center">
         <div class="container">
-            <p class="mb-0">&copy; 2026 FarmeaBeca - Inspirado en Mineduc Chile</p>
+            <p class="mb-0">&copy; 2026 FarmeaBeca • Inspirado en Mineduc Chile</p>
         </div>
     </footer>
 

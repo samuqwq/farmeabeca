@@ -11,18 +11,17 @@
 <body>
 
     <div class="d-flex">
-        <!-- Sidebar Profesional -->
+        <!-- Sidebar limpio (sin "Volver al Inicio") -->
         <div class="sidebar p-4" style="width: 280px; min-height: 100vh;">
             <div class="d-flex align-items-center mb-5">
                 <i class="fas fa-school fa-2x text-primary me-3"></i>
-                <h4 class="fw-bold mb-0">FarmeaBeca</h4>
+                <h4 class="fw-bold mb-0">FarmeaBeca Admin</h4>
             </div>
             <ul class="nav flex-column gap-2">
-                <li><a href="#" class="nav-link active px-3 py-3"><i class="fas fa-home me-2"></i>Dashboard</a></li>
-                <li><a href="#" class="nav-link px-3 py-3"><i class="fas fa-users me-2"></i>Alumnos</a></li>
-                <li><a href="misiones.html" class="nav-link px-3 py-3"><i class="fas fa-trophy me-2"></i>Misiones</a></li>
+                <li><a href="#" onclick="mostrarSeccion('dashboardContent')" class="nav-link active px-3 py-3"><i class="fas fa-home me-2"></i>Dashboard</a></li>
+                <li><a href="#" onclick="mostrarSeccion('dashboardContent')" class="nav-link px-3 py-3"><i class="fas fa-users me-2"></i>Alumnos</a></li>
+                <li><a href="#" onclick="mostrarSeccion('gestionMisiones')" class="nav-link px-3 py-3"><i class="fas fa-trophy me-2"></i>Gestionar Misiones</a></li>
                 <li><a href="suscripcion.html" class="nav-link px-3 py-3"><i class="fas fa-crown me-2"></i>Suscripción</a></li>
-                <li><a href="../index.html" class="nav-link px-3 py-3"><i class="fas fa-arrow-left me-2"></i>Volver al Inicio</a></li>
             </ul>
             <hr class="my-4">
             <button onclick="logout()" class="btn btn-outline-danger w-100 py-3 rounded-pill">
@@ -32,56 +31,95 @@
 
         <!-- Contenido Principal -->
         <div class="flex-grow-1 p-5">
-            <div class="d-flex justify-content-between align-items-center mb-5">
-                <h1 class="fw-bold" id="colegioTitle">Dashboard Colegio</h1>
-                <span id="colegioName" class="badge bg-primary fs-5 px-4 py-3 rounded-pill"></span>
-            </div>
 
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 text-white bg-primary">
-                        <div class="card-body p-4">
-                            <h5>Total Alumnos</h5>
-                            <h2 id="totalAlumnos" class="display-4 fw-bold">12</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 text-white bg-success">
-                        <div class="card-body p-4">
-                            <h5>FBP Totales</h5>
-                            <h2 id="totalFBP" class="display-4 fw-bold">2450</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 text-white bg-warning">
-                        <div class="card-body p-4">
-                            <h5>Plan Actual</h5>
-                            <h2 id="planActual" class="display-4 fw-bold">Premium</h2>
-                        </div>
-                    </div>
+            <!-- Dashboard por defecto -->
+            <div id="dashboardContent">
+                <div class="d-flex justify-content-between align-items-center mb-5">
+                    <h1 class="fw-bold" id="colegioTitle">Dashboard Colegio</h1>
+                    <span id="colegioName" class="badge bg-primary fs-5 px-4 py-3 rounded-pill"></span>
                 </div>
 
-                <!-- Tabla de alumnos -->
-                <div class="col-12">
-                    <h5 class="mb-3">Alumnos registrados</h5>
-                    <div class="card">
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table table-hover mb-0" id="tablaAlumnos">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th>Nombre</th>
-                                            <th>RUT</th>
-                                            <th class="text-end">FBP</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card text-white bg-primary h-100">
+                            <div class="card-body p-4">
+                                <h5>Total Alumnos Registrados</h5>
+                                <h2 id="totalAlumnos" class="display-4 fw-bold">0</h2>
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="card text-white bg-warning h-100">
+                            <div class="card-body p-4">
+                                <h5>Plan de Suscripción</h5>
+                                <h2 id="planActual" class="display-4 fw-bold">Básico</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h5 class="mt-5 mb-3">Alumnos y sus puntos FBP</h5>
+                <div class="card">
+                    <div class="card-body p-0">
+                        <table class="table table-hover mb-0" id="tablaAlumnos">
+                            <thead class="table-light"><tr><th>Nombre</th><th>RUT</th><th class="text-end">Puntos FBP</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gestión de Misiones -->
+            <div id="gestionMisiones" class="d-none">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>Gestionar Misiones</h2>
+                    <button onclick="nuevaMision()" class="btn btn-success">
+                        <i class="fas fa-plus"></i> Nueva Misión
+                    </button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover" id="tablaGestionMisiones">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Título</th>
+                                <th>Descripción</th>
+                                <th>Puntos</th>
+                                <th class="text-end">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Crear/Editar Misión -->
+    <div class="modal fade" id="modalMision" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Nueva Misión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="misionId">
+                    <div class="mb-3">
+                        <label class="form-label">Título</label>
+                        <input type="text" id="misionTitulo" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Descripción</label>
+                        <textarea id="misionDescripcion" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Puntos FBP</label>
+                        <input type="number" id="misionPuntos" class="form-control" value="10">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button onclick="guardarMision()" class="btn btn-primary">Guardar</button>
                 </div>
             </div>
         </div>
@@ -90,5 +128,117 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/dashboard.js"></script>
+    <script src="../assets/js/missions.js"></script>
+
+    <script>
+        function mostrarSeccion(seccion) {
+            document.querySelectorAll('#dashboardContent, #gestionMisiones').forEach(el => el.classList.add('d-none'));
+            document.getElementById(seccion).classList.remove('d-none');
+            if (seccion === 'gestionMisiones') cargarTablaGestionMisiones();
+        }
+
+        function cargarTablaGestionMisiones() {
+            const tbody = document.querySelector('#tablaGestionMisiones tbody');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+            cargarMisionesGlobales();
+
+            if (misionesGlobales.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="text-center text-muted py-4">Aún no hay misiones. Crea la primera.</td></tr>`;
+                return;
+            }
+
+            misionesGlobales.forEach(m => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${m.titulo}</td>
+                    <td>${m.descripcion}</td>
+                    <td><span class="badge bg-warning">${m.puntos} FBP</span></td>
+                    <td class="text-end">
+                        <button onclick="editarMision(${m.id})" class="btn btn-sm btn-outline-primary me-2">Editar</button>
+                        <button onclick="eliminarMision(${m.id})" class="btn btn-sm btn-outline-danger">Eliminar</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        window.nuevaMision = function() {
+            document.getElementById('modalTitle').textContent = 'Nueva Misión';
+            document.getElementById('misionId').value = '';
+            document.getElementById('misionTitulo').value = '';
+            document.getElementById('misionDescripcion').value = '';
+            document.getElementById('misionPuntos').value = 10;
+            new bootstrap.Modal(document.getElementById('modalMision')).show();
+        };
+
+        window.editarMision = function(id) {
+            cargarMisionesGlobales();
+            const mision = misionesGlobales.find(m => m.id === id);
+            if (!mision) return;
+            document.getElementById('modalTitle').textContent = 'Editar Misión';
+            document.getElementById('misionId').value = mision.id;
+            document.getElementById('misionTitulo').value = mision.titulo;
+            document.getElementById('misionDescripcion').value = mision.descripcion;
+            document.getElementById('misionPuntos').value = mision.puntos;
+            new bootstrap.Modal(document.getElementById('modalMision')).show();
+        };
+
+        window.guardarMision = function() {
+            const id = document.getElementById('misionId').value;
+            const titulo = document.getElementById('misionTitulo').value.trim();
+            const descripcion = document.getElementById('misionDescripcion').value.trim();
+            const puntos = parseInt(document.getElementById('misionPuntos').value);
+
+            if (!titulo || !descripcion) {
+                showToast('Título y descripción son obligatorios', 'danger');
+                return;
+            }
+
+            cargarMisionesGlobales();
+
+            if (id) {
+                const mision = misionesGlobales.find(m => m.id == id);
+                if (mision) {
+                    mision.titulo = titulo;
+                    mision.descripcion = descripcion;
+                    mision.puntos = puntos;
+                }
+            } else {
+                misionesGlobales.push({
+                    id: Date.now(),
+                    titulo: titulo,
+                    descripcion: descripcion,
+                    puntos: puntos,
+                    icono: "fas fa-star"
+                });
+            }
+
+            guardarMisionesGlobales();
+            bootstrap.Modal.getInstance(document.getElementById('modalMision')).hide();
+            showToast('Misión guardada correctamente', 'success');
+            cargarTablaGestionMisiones();
+        };
+
+        window.eliminarMision = function(id) {
+            if (!confirm('¿Eliminar esta misión permanentemente?')) return;
+            cargarMisionesGlobales();
+            misionesGlobales = misionesGlobales.filter(m => m.id !== id);
+            guardarMisionesGlobales();
+            cargarTablaGestionMisiones();
+            showToast('Misión eliminada', 'success');
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = protectRoute();
+            if (!user || user.tipo !== 'colegio') return;
+
+            document.getElementById('colegioName').textContent = user.nombre;
+            document.getElementById('colegioTitle').textContent = `Dashboard - ${user.nombre}`;
+
+            cargarAlumnos();
+            cargarTablaGestionMisiones();
+        });
+    </script>
 </body>
 </html>

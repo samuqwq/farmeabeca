@@ -10,7 +10,6 @@
 </head>
 <body>
 
-    <!-- Navbar consistente con todo el proyecto -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold fs-4" href="index.html">
@@ -23,6 +22,8 @@
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#beneficios">Beneficios</a></li>
                     <li class="nav-item"><a class="nav-link" href="#para-quien">Para quién</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#metas">Metas</a></li>
                     <li class="nav-item"><a class="nav-link" href="pages/login.html">Iniciar sesión</a></li>
                     <li class="nav-item ms-3">
                         <a href="pages/registro.html" class="btn btn-light fw-semibold rounded-pill px-4">Registrarse gratis</a>
@@ -32,20 +33,15 @@
         </div>
     </nav>
 
-    <!-- Hero mejorado -->
     <header class="hero d-flex align-items-center text-white">
         <div class="container position-relative z-3">
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <h1 class="display-3 fw-bold mb-4">Tu beca de apoyo estudiantil</h1>
-                    <p class="lead fs-4 mb-5">Misiones • Mentores pares • Apoyo psicológico • Recompensas FBP</p>
+                    <p class="lead fs-4 mb-5">Misiones gamificadas, mentores pares, apoyo psicológico y recompensas en FBP.<br>Transformamos la experiencia escolar en una aventura motivadora.</p>
                     <div class="d-flex flex-wrap gap-3">
                         <a href="pages/registro.html" class="btn btn-light btn-lg fw-semibold rounded-pill px-5 py-3">Empezar ahora</a>
                         <a href="pages/login.html" class="btn btn-outline-light btn-lg fw-semibold rounded-pill px-5 py-3">Ya tengo cuenta</a>
-                    </div>
-                    <div class="mt-4 d-flex align-items-center gap-2">
-                        <i class="fas fa-check-circle text-success fs-3"></i>
-                        <span class="fs-5">Totalmente gratis para empezar</span>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center mt-5 mt-lg-0">
@@ -55,31 +51,47 @@
         </div>
     </header>
 
-    <!-- Beneficios -->
     <section id="beneficios" class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center mb-5 fw-bold">¿Por qué FarmeaBeca?</h2>
             <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 hover-card text-center p-4">
-                        <i class="fas fa-trophy fa-3x text-warning mb-3"></i>
-                        <h5 class="fw-bold">Misiones y Recompensas</h5>
-                        <p class="text-muted">Gana FBP completando desafíos diarios</p>
+                <div class="col-md-4"><div class="card h-100 border-0 hover-card text-center p-4"><i class="fas fa-trophy fa-3x text-warning mb-3"></i><h5>Misiones y Recompensas</h5><p class="text-muted">Gana FBP completando desafíos diarios</p></div></div>
+                <div class="col-md-4"><div class="card h-100 border-0 hover-card text-center p-4"><i class="fas fa-users fa-3x text-primary mb-3"></i><h5>Pares Mentores</h5><p class="text-muted">Conecta con estudiantes avanzados</p></div></div>
+                <div class="col-md-4"><div class="card h-100 border-0 hover-card text-center p-4"><i class="fas fa-heart fa-3x text-success mb-3"></i><h5>Apoyo Psicológico</h5><p class="text-muted">Chat confidencial y ayuda profesional</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="para-quien" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">¿Para quién es FarmeaBeca?</h2>
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 hover-card p-5">
+                        <h4 class="fw-bold text-primary"><i class="fas fa-user-graduate me-2"></i>Estudiantes</h4>
+                        <p class="mt-3">Para alumnos de enseñanza media que buscan motivación, apoyo académico y emocional mientras ganan recompensas.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 hover-card text-center p-4">
-                        <i class="fas fa-users fa-3x text-primary mb-3"></i>
-                        <h5 class="fw-bold">Pares Mentores</h5>
-                        <p class="text-muted">Conecta con estudiantes que ya lo lograron</p>
+                <div class="col-lg-6">
+                    <div class="card h-100 border-0 hover-card p-5">
+                        <h4 class="fw-bold text-primary"><i class="fas fa-school me-2"></i>Colegios</h4>
+                        <p class="mt-3">Para establecimientos que quieren motivar a sus estudiantes, monitorear progreso y ofrecer herramientas modernas de apoyo.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 hover-card text-center p-4">
-                        <i class="fas fa-heart fa-3x text-success mb-3"></i>
-                        <h5 class="fw-bold">Apoyo Psicológico</h5>
-                        <p class="text-muted">Chat confidencial y ayuda profesional</p>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quienes-somos" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">¿Quiénes somos?</h2>
+                    <p class="lead">FarmeaBeca es una plataforma educativa gamificada creada para reducir la deserción escolar y mejorar el bienestar de los estudiantes chilenos.</p>
+                    <p>Combinamos tecnología, psicología positiva y mecánicas de juego para hacer del aprendizaje una experiencia atractiva y significativa.</p>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://picsum.photos/id/1016/600/400" alt="Equipo FarmeaBeca" class="img-fluid rounded-4 shadow">
                 </div>
             </div>
         </div>
@@ -87,7 +99,7 @@
 
     <footer class="bg-dark text-white py-5 text-center">
         <div class="container">
-            <p class="mb-0">&copy; 2026 FarmeaBeca • Inspirado en Mineduc Chile</p>
+            <p class="mb-0">&copy; 2026 FarmeaBeca • Inspirado en el Ministerio de Educación de Chile</p>
         </div>
     </footer>
 

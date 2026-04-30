@@ -21,7 +21,6 @@ const planes = [
     }
 ];
 
-// Renderizar planes
 function cargarPlanes() {
     const container = document.getElementById('planesContainer');
     const user = getCurrentUser();
@@ -29,11 +28,10 @@ function cargarPlanes() {
 
     document.getElementById('userGreeting').innerHTML = `<i class="fas fa-user-graduate"></i> ${user.nombre}`;
     
-    // Cambiar botón de volver según tipo de usuario
     const volverBtn = document.getElementById('volverDashboard');
     if (user.tipo === 'colegio') {
         volverBtn.href = 'dashboard-colegio.html';
-        volverBtn.textContent = '← Volver al Dashboard Colegio';
+        volverBtn.textContent = '← Dashboard Colegio';
     }
 
     container.innerHTML = '';
@@ -43,8 +41,8 @@ function cargarPlanes() {
         
         const cardHTML = `
             <div class="col-lg-5 col-md-6">
-                <div class="card h-100 shadow-sm border-0 position-relative ${plan.popular ? 'border-warning border-3' : ''}">
-                    ${plan.popular ? `<span class="badge bg-warning text-dark position-absolute top-0 start-50 translate-middle">MÁS POPULAR</span>` : ''}
+                <div class="card h-100 shadow-sm border-0 position-relative ${plan.popular ? 'border-warning border-3 pt-4' : ''}">
+                    ${plan.popular ? `<span class="badge bg-warning text-dark position-absolute top-0 start-50 translate-middle px-4 py-1" style="font-size: 0.95rem;">MÁS POPULAR</span>` : ''}
                     <div class="card-body p-5">
                         <div class="text-center mb-4">
                             <h3 class="fw-bold">${plan.nombre}</h3>
@@ -68,7 +66,6 @@ function cargarPlanes() {
     });
 }
 
-// Cambiar suscripción
 window.suscribirse = function(planId) {
     const user = getCurrentUser();
     if (!user) return;
@@ -78,13 +75,11 @@ window.suscribirse = function(planId) {
 
     showToast(`¡Felicidades! Ahora tienes el plan <strong>${planId === 'premium' ? 'Premium' : 'Básico'}</strong>`, 'success');
     
-    // Recargar la página para actualizar los planes
     setTimeout(() => {
         window.location.reload();
     }, 1400);
 };
 
-// Inicializar
 document.addEventListener('DOMContentLoaded', () => {
     protectRoute();
     cargarPlanes();
